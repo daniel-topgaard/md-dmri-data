@@ -1,0 +1,18 @@
+##TITLE= Audit trail, TOPSPIN		Version 2.1
+##JCAMPDX= 5.01
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= daniel
+$$ /opt/topspin2/data/DT/nmr/DT_axderare2d_test/13/audita.txt
+##AUDIT TRAIL=  $$ (NUMBER, WHEN, WHO, WHERE, PROCESS, VERSION, WHAT)
+(   1,<2016-03-24 14:07:53.738 +0100>,<daniel>,<bele>,<go>,<TOPSPIN 2.1>,
+      <created by zg
+	started at 2016-03-24 13:48:44.533 +0100,
+	POWCHK disabled, PULCHK disabled,
+       configuration hash MD5:
+       7D 1A 18 55 97 DC F3 87 7B F4 29 62 89 A7 F1 B5
+       data hash MD5: 3494 * 544
+       B6 F0 BB C7 74 3A EE D0 E9 97 FC 50 B4 39 73 C7>)
+##END=
+
+$$ hash MD5
+$$ B7 76 D0 D5 FB 66 C1 FF 8B 95 07 D8 F5 66 FC FF

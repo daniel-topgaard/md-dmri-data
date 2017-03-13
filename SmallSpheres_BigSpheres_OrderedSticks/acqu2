@@ -1,0 +1,17 @@
+##TITLE= Parameter file, TOPSPIN		Version 2.1
+##JCAMPDX= 5.0
+##DATATYPE= Parameter Values
+##NPOINTS= 1	$$ modification sequence number
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= daniel
+$$ 2016-05-02 21:19:39.424 +0200  daniel@bele
+$$ /opt/topspin2/data/DT/nmr/DTD/121/acqu2
+$$ process /opt/topspin2/prog/mod/dirdata
+##$BF1= 500.13
+##$FnMODE= 0
+##$NUC1= <1H>
+##$O1= 2559.41
+##$SFO1= 500.13255941
+##$SW= 10.3210944348996
+##$TD= 480
+##END=

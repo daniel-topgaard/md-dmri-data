@@ -1,0 +1,573 @@
+EDIT_PAR COMMAND FILE
+
+DI_MODE         LONG
+ED_ENTRY        ACQU
+ORDER           FILE
+
+
+HEADER		"F2 - Acquisition Parameters"
+NAME		PULPROG
+END
+NAME		TD
+END
+NAME		NS
+END
+NAME		DS
+END
+T_NAME		SWH
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE 0.0 1e38
+		REL	"SWH=SW*SFO1"
+		INV_REL "SW=SWH/SFO1"
+		UNIT	"Hz"
+		FORMAT	"%14.2f Hz"
+		TEXT	"sweep width in Hz"
+END
+T_NAME          AQ
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE 0.0 1e38
+		REL	"AQ=aqcalc(SW,SFO1,TD,DIGTYP)"
+		INV_REL	"TD=tdcalc(SW,SFO1,1.0e6*AQ,DIGTYP)"
+		UNIT	"sec"
+		FORMAT	"%14.7f sec"
+                TEXT	"acquisition time"
+END
+NAME		RG
+END
+T_NAME          DW
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE 0.0 1e38
+		REL	"DW=1/(2*SW*SFO1)"
+		INV_REL	"SW=1000000/(2*(0.005+DW)*SFO1)"
+		UNIT	"usec"
+		FORMAT	"%14.3f usec"
+		TEXT	"dwell time "
+END
+NAME		DE
+		FORMAT	"%14.2f usec"
+END
+T_NAME		CNST1
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -1e38 1e38
+		REL	"CNST1=CNST[1]"
+		INV_REL	"CNST[1]=CNST1"
+		FORMAT	"%14.7f"
+		TEXT	" "
+END
+T_NAME		CNST2
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -1e38 1e38
+		REL	"CNST2=CNST[2]"
+		INV_REL	"CNST[2]=CNST2"
+		FORMAT	"%14.7f"
+		TEXT	" "
+END
+T_NAME		CNST3
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -1e38 1e38
+		REL	"CNST3=CNST[3]"
+		INV_REL	"CNST[3]=CNST3"
+		FORMAT	"%14.7f"
+		TEXT	" "
+END
+T_NAME		CNST11
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -1e38 1e38
+		REL	"CNST11=CNST[11]"
+		INV_REL	"CNST[11]=CNST11"
+		FORMAT	"%14.7f"
+		TEXT	" "
+END
+T_NAME		CNST12
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -1e38 1e38
+		REL	"CNST12=CNST[12]"
+		INV_REL	"CNST[12]=CNST12"
+		FORMAT	"%14.7f"
+		TEXT	" "
+END
+T_NAME		CNST13
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -1e38 1e38
+		REL	"CNST13=CNST[13]"
+		INV_REL	"CNST[13]=CNST13"
+		FORMAT	"%14.7f"
+		TEXT	" "
+END
+T_NAME		cnst14
+		TYPE	R32
+		SUBRANGE -1e38 1e38
+		CLASS	ACQU
+		REL	"cnst14=cnst11*0.5*(d40+d32)/(d41+d32*2)"
+		INV_REL	"D[0]=cnst14"
+		UNIT	"no"
+		TEXT	"cnst14=cnst11*0.5*(d40+d32)/(d41+d32*2)"
+		FORMAT	"%14.6f"
+		NONEDIT
+END
+T_NAME		cnst15
+		TYPE	R32
+		SUBRANGE -1e38 1e38
+		CLASS	ACQU
+		REL	"cnst15=cnst12*0.5*(d40+d32)/(d41+d32*2)"
+		INV_REL	"D[0]=cnst15"
+		UNIT	"no"
+		TEXT	"cnst15=cnst12*0.5*(d40+d32)/(d41+d32*2)"
+		FORMAT	"%14.6f"
+		NONEDIT
+END
+T_NAME		cnst16
+		TYPE	R32
+		SUBRANGE -1e38 1e38
+		CLASS	ACQU
+		REL	"cnst16=cnst13*0.5*(d40+d32)/(d41+d32*2)"
+		INV_REL	"D[0]=cnst16"
+		UNIT	"no"
+		TEXT	"cnst16=cnst13*0.5*(d40+d32)/(d41+d32*2)"
+		FORMAT	"%14.6f"
+		NONEDIT
+END
+T_NAME		CNST21
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -1e38 1e38
+		REL	"CNST21=CNST[21]"
+		INV_REL	"CNST[21]=CNST21"
+		FORMAT	"%14.7f"
+		TEXT	" "
+END
+T_NAME		CNST22
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -1e38 1e38
+		REL	"CNST22=CNST[22]"
+		INV_REL	"CNST[22]=CNST22"
+		FORMAT	"%14.7f"
+		TEXT	" "
+END
+T_NAME		CNST23
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -1e38 1e38
+		REL	"CNST23=CNST[23]"
+		INV_REL	"CNST[23]=CNST23"
+		FORMAT	"%14.7f"
+		TEXT	" "
+END
+T_NAME		CNST31
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -1e38 1e38
+		REL	"CNST31=CNST[31]"
+		INV_REL	"CNST[31]=CNST31"
+		FORMAT	"%14.7f"
+		TEXT	" "
+END
+T_NAME		CNST32
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -1e38 1e38
+		REL	"CNST32=CNST[32]"
+		INV_REL	"CNST[32]=CNST32"
+		FORMAT	"%14.7f"
+		TEXT	" "
+END
+T_NAME		CNST33
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -1e38 1e38
+		REL	"CNST33=CNST[33]"
+		INV_REL	"CNST[33]=CNST33"
+		FORMAT	"%14.7f"
+		TEXT	" "
+END
+T_NAME		CNST34
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -1e38 1e38
+		REL	"CNST34=CNST[34]"
+		INV_REL	"CNST[34]=CNST34"
+		FORMAT	"%14.7f"
+		TEXT	" "
+END
+T_NAME		CNST35
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -1e38 1e38
+		REL	"CNST35=CNST[35]"
+		INV_REL	"CNST[35]=CNST35"
+		FORMAT	"%14.7f"
+		TEXT	" "
+END
+T_NAME		CNST36
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -1e38 1e38
+		REL	"CNST36=CNST[36]"
+		INV_REL	"CNST[36]=CNST36"
+		FORMAT	"%14.7f"
+		TEXT	" "
+END
+T_NAME		CNST37
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -1e38 1e38
+		REL	"CNST37=CNST[37]"
+		INV_REL	"CNST[37]=CNST37"
+		FORMAT	"%14.7f"
+		TEXT	" "
+END
+T_NAME		D1
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE 0.0 1e38
+		REL	"D1=D[1]"
+		INV_REL	"D[1]=D1"
+		UNIT	"sec"
+		FORMAT	"%14.8f sec"
+		TEXT	"delay 1"
+END
+T_NAME		D3
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE 0.0 1e38
+		REL	"D3=D[3]"
+		INV_REL	"D[3]=D3"
+		UNIT	"sec"
+		FORMAT	"%14.8f sec"
+		TEXT	"delay 3"
+END
+T_NAME		D4
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE 0.0 1e38
+		REL	"D4=D[4]"
+		INV_REL	"D[4]=D4"
+		UNIT	"sec"
+		FORMAT	"%14.8f sec"
+		TEXT	"delay 4"
+END
+T_NAME		D6
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE 0.0 1e38
+		REL	"D6=D[6]"
+		INV_REL	"D[6]=D6"
+		UNIT	"sec"
+		FORMAT	"%14.8f sec"
+		TEXT	"delay 6"
+END
+T_NAME		d11
+		TYPE	R32
+		SUBRANGE 0.0 1e8
+		CLASS	ACQU
+		REL	"d11=30m"
+		INV_REL	"D[0]=d11"
+		UNIT	"sec"
+		TEXT	"d11=30m"
+		FORMAT	"%14.8f sec"
+		NONEDIT
+END
+T_NAME		d22
+		TYPE	R32
+		SUBRANGE 0.0 1e8
+		CLASS	ACQU
+		REL	"d22 = 1u"
+		INV_REL	"D[0]=d22"
+		UNIT	"sec"
+		TEXT	"d22 = 1u"
+		FORMAT	"%14.8f sec"
+		NONEDIT
+END
+T_NAME		D32
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE 0.0 1e38
+		REL	"D32=D[32]"
+		INV_REL	"D[32]=D32"
+		UNIT	"sec"
+		FORMAT	"%14.8f sec"
+		TEXT	"delay 32"
+END
+T_NAME		d34
+		TYPE	R32
+		SUBRANGE 0.0 1e8
+		CLASS	ACQU
+		REL	"d34 = p11*0.5-d32*.5"
+		INV_REL	"D[0]=d34"
+		UNIT	"sec"
+		TEXT	"d34 = p11*0.5-d32*.5"
+		FORMAT	"%14.8f sec"
+		NONEDIT
+END
+T_NAME		d35
+		TYPE	R32
+		SUBRANGE 0.0 1e8
+		CLASS	ACQU
+		REL	"d35 = d34 + d32*3+p11*0.5"
+		INV_REL	"D[0]=d35"
+		UNIT	"sec"
+		TEXT	"d35 = d34 + d32*3+p11*0.5"
+		FORMAT	"%14.8f sec"
+		NONEDIT
+END
+T_NAME		D40
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE 0.0 1e38
+		REL	"D40=D[40]"
+		INV_REL	"D[40]=D40"
+		UNIT	"sec"
+		FORMAT	"%14.8f sec"
+		TEXT	"delay 40"
+END
+T_NAME		d41
+		TYPE	R32
+		SUBRANGE 0.0 1e8
+		CLASS	ACQU
+		REL	"d41 = tauecho/2-d32*3-dw*4"
+		INV_REL	"D[0]=d41"
+		UNIT	"sec"
+		TEXT	"d41 = tauecho/2-d32*3-dw*4"
+		FORMAT	"%14.8f sec"
+		NONEDIT
+END
+T_NAME		FOVphase
+		TYPE	R32
+		SUBRANGE 0.0 1e8
+		CLASS	ACQU
+		REL	"FOVphase = 100*pi*l1/(26.75e7*d32*sqrt(pow(cnst21,2)+pow(cnst22,2)+pow(cnst23,2))*3)"
+		INV_REL	"D[0]=FOVphase"
+		UNIT	"sec"
+		TEXT	"FOVphase = 100*pi*l1/(26.75e7*d32*sqrt(pow(cnst21,2)+pow(cnst22,2)+pow(cnst23,2))*3)"
+		FORMAT	"%14.8f sec"
+		NONEDIT
+END
+T_NAME		FOVread
+		TYPE	R32
+		SUBRANGE 0.0 1e8
+		CLASS	ACQU
+		REL	"FOVread = 100*pi/(26.75e7*dw*1e-6*sqrt(pow(cnst11,2)+pow(cnst12,2)+pow(cnst13,2))*3)"
+		INV_REL	"D[0]=FOVread"
+		UNIT	"sec"
+		TEXT	"FOVread = 100*pi/(26.75e7*dw*1e-6*sqrt(pow(cnst11,2)+pow(cnst12,2)+pow(cnst13,2))*3)"
+		FORMAT	"%14.8f sec"
+		NONEDIT
+END
+T_NAME		L1
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE 0.0 1e38
+		REL	"L1=L[1]"
+		INV_REL	"L[1]=L1"
+		FORMAT	"%14.0f"
+		TEXT	"loop counter 1"
+END
+T_NAME		RESphase
+		TYPE	R32
+		SUBRANGE 0.0 1e8
+		CLASS	ACQU
+		REL	"RESphase = FOVphase/l1"
+		INV_REL	"D[0]=RESphase"
+		UNIT	"sec"
+		TEXT	"RESphase = FOVphase/l1"
+		FORMAT	"%14.8f sec"
+		NONEDIT
+END
+T_NAME		RESread
+		TYPE	R32
+		SUBRANGE 0.0 1e8
+		CLASS	ACQU
+		REL	"RESread = FOVread*2*dw/d40"
+		INV_REL	"D[0]=RESread"
+		UNIT	"sec"
+		TEXT	"RESread = FOVread*2*dw/d40"
+		FORMAT	"%14.8f sec"
+		NONEDIT
+END
+T_NAME		aqeff
+		TYPE	R32
+		SUBRANGE 0.0 1e8
+		CLASS	ACQU
+		REL	"aqeff=tauecho/2 + d32 + (tauecho+p12)*l1"
+		INV_REL	"D[0]=aqeff"
+		UNIT	"sec"
+		TEXT	"aqeff=tauecho/2 + d32 + (tauecho+p12)*l1"
+		FORMAT	"%14.8f sec"
+		NONEDIT
+END
+T_NAME		aqrest
+		TYPE	R32
+		SUBRANGE 0.0 1e8
+		CLASS	ACQU
+		REL	"aqrest = aq-aqeff"
+		INV_REL	"D[0]=aqrest"
+		UNIT	"sec"
+		TEXT	"aqrest = aq-aqeff"
+		FORMAT	"%14.8f sec"
+		NONEDIT
+END
+T_NAME		dwcomp
+		TYPE	R32
+		SUBRANGE 0.0 1e8
+		CLASS	ACQU
+		REL	"dwcomp=dw-1.25u"
+		INV_REL	"D[0]=dwcomp"
+		UNIT	"sec"
+		TEXT	"dwcomp=dw-1.25u"
+		FORMAT	"%14.8f sec"
+		NONEDIT
+END
+T_NAME		tauecho
+		TYPE	R32
+		SUBRANGE 0.0 1e8
+		CLASS	ACQU
+		REL	"tauecho = (dw*8+d32*4+d40)"
+		INV_REL	"D[0]=tauecho"
+		UNIT	"sec"
+		TEXT	"tauecho = (dw*8+d32*4+d40)"
+		FORMAT	"%14.8f sec"
+		NONEDIT
+END
+HEADER		"======== CHANNEL f1 ========"
+NAME		NUC1
+		NONEDIT
+		TEXT	"nucleus for channel 1"
+END
+T_NAME		P11
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE 0.0 1.0e10
+		REL	"P11=P[11]"
+		INV_REL	"P[11]=P11"
+		UNIT	"usec"
+		FORMAT	"%14.2f usec"
+		TEXT	"pulse 11"
+END
+T_NAME		P12
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE 0.0 1.0e10
+		REL	"P12=P[12]"
+		INV_REL	"P[12]=P12"
+		UNIT	"usec"
+		FORMAT	"%14.2f usec"
+		TEXT	"pulse 12"
+END
+T_NAME		PL1
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -6.0 1e38
+		REL	"PL1=PL[1]"
+		INV_REL	"PL[1]=PL1"
+		UNIT	"dB"
+		FORMAT	"%14.2f dB"
+		TEXT	"power PL1 "
+END
+T_NAME		PL11
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -6.0 1e38
+		REL	"PL11=PL[11]"
+		INV_REL	"PL[11]=PL11"
+		UNIT	"dB"
+		FORMAT	"%14.2f dB"
+		TEXT	"power PL11 "
+END
+T_NAME		PL12
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -6.0 1e38
+		REL	"PL12=PL[12]"
+		INV_REL	"PL[12]=PL12"
+		UNIT	"dB"
+		FORMAT	"%14.2f dB"
+		TEXT	"power PL12 "
+END
+T_NAME		PL1W
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -6.0 1e38
+		REL	"PL1W=70*pow(10.0,(-6-PL[1])/10.0)"
+		INV_REL	"PL[1]=-6-4.3425*log(PL1W/70)"
+		UNIT	"no"
+		FORMAT	"%14.8f W"
+		TEXT	"power PL1 in W"
+END
+T_NAME		PL11W
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -6.0 1e38
+		REL	"PL11W=70*pow(10.0,(-6-PL[11])/10.0)"
+		INV_REL	"PL[11]=-6-4.3425*log(PL11W/70)"
+		UNIT	"no"
+		FORMAT	"%14.8f W"
+		TEXT	"power PL11 in W"
+END
+T_NAME		PL12W
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -6.0 1e38
+		REL	"PL12W=70*pow(10.0,(-6-PL[12])/10.0)"
+		INV_REL	"PL[12]=-6-4.3425*log(PL12W/70)"
+		UNIT	"no"
+		FORMAT	"%14.8f W"
+		TEXT	"power PL12 in W"
+END
+NAME		SFO1
+		FORMAT	"%14.7f MHz"
+		TEXT	"frequency of observe channel"
+END
+NAME		SPNAM11
+		TEXT	"file name for sp0"
+END
+NAME		SPNAM12
+		TEXT	"file name for sp0"
+END
+T_NAME		SPOAL11
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -1.0 1.0
+		REL	"SPOAL11=SPOAL[11]"
+		INV_REL	"SPOAL[11]=SPOAL11"
+		FORMAT	"%14.3f"
+		TEXT	"phase alignment of freq. offset in SP11"
+END
+T_NAME		SPOAL12
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -1.0 1.0
+		REL	"SPOAL12=SPOAL[12]"
+		INV_REL	"SPOAL[12]=SPOAL12"
+		FORMAT	"%14.3f"
+		TEXT	"phase alignment of freq. offset in SP12"
+END
+T_NAME		SPOFFS11
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -1e38 1e38
+		REL	"SPOFFS11=SPOFFS[11]"
+		INV_REL	"SPOFFS[11]=SPOFFS11"
+		UNIT	"Hz"
+		FORMAT	"%14.2f Hz"
+		TEXT	"offset frequency for SP11"
+END
+T_NAME		SPOFFS12
+		TYPE	R32
+		CLASS	ACQU
+		SUBRANGE -1e38 1e38
+		REL	"SPOFFS12=SPOFFS[12]"
+		INV_REL	"SPOFFS[12]=SPOFFS12"
+		UNIT	"Hz"
+		FORMAT	"%14.2f Hz"
+		TEXT	"offset frequency for SP12"
+END
