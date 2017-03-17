@@ -7,4 +7,4 @@ This repository contains example data that can be processed with the [MD-dMRI fr
 * [SmallSpheres_BigSpheres_RandomSticks](SmallSpheres_BigSpheres_RandomSticks). As above, but with magnetically aligned liquid crystalline domains. 
 
 ## How to start
-Run the files step1_recon_data.m and step2_run_analysis.m within each example folder. View the data with GUI included in the [MD-dMRI framework](https://github.com/daniel-topgaard/md-dmri/).
+Run the files step1_recon_data.m and step2_run_analysis.m within each example folder. View the data with the GUI included in the [MD-dMRI framework](https://github.com/daniel-topgaard/md-dmri/).
