@@ -7,4 +7,4 @@ This repository contains example data that can be processed with the [MD-dMRI fr
 * [SmallSpheres_BigSpheres_RandomSticks](SmallSpheres_BigSpheres_RandomSticks). As above, but with magnetically aligned liquid crystalline domains. 
 
 ## How to start
-Run the files step1_recon_data.m and step2_run_analysis.m within each example folder. View the data with the GUI included in the [MD-dMRI framework](https://github.com/daniel-topgaard/md-dmri/).
+Run setup_paths.m in the root folder to put files in the Matlab path. Run step1_recon_data.m and step2_run_analysis.m in the example folders above to process the data. View the raw or processed data with the GUI included in the [MD-dMRI framework](https://github.com/daniel-topgaard/md-dmri/). The GUI is started by typing mgui in the Matlab command window.
