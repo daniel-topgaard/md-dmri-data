@@ -11,28 +11,16 @@
 %    orientational order parameters;
 %    microscopic diffusion anisotropy.
 %    See Lasic et al, Front. Phys. 2, 11 (2014). 
-%    http://dx.doi.org/10.3389/fphy.2014.00011.
-%
-% 3) Shape of the microscopic diffusion tensor (prolate, sphere, oblate).
-%    See, Eriksson et al., J. Chem. Phys. 142, 104201 (2015).
-%    http://dx.doi.org/10.1063/1.4913502.
-%
-% 4) Saupe order tensors.
-%    See Topgaard, Phys. Chem. Chem. Phys. 18, 8545 (2016).
-%    http://dx.doi.org/10.1039/c5cp07251d.
-%
-% 5) Size-shape diffusion tensor distributions.
-%    See de Almeida Martins and Topgaard, Phys. Rev. Lett. 116, 087601 (2016).
-%    http://dx.doi.org/10.1103/PhysRevLett.116.087601.
+%    http://dx.doi.org/10.3389/fphy.2014.00011.%
 %   
-% 6) Size-shape-orientation diffusion tensor distributions.
+% 3) Size-shape-orientation diffusion tensor distributions.
 %    See Topgaard. J. Magn. Reson. 275, 98 (2017).
 %    http://dx.doi.org/10.1016/j.jmr.2016.12.007
 
 clear
 
-models         = {'dti_euler', 'dtd_gamma', 'dtd_pake', 'dtd_saupe', 'dtd_pa', 'dtd'};
-c_model        = 1:6;
+models         = {'dti_euler', 'dtd_gamma', 'dtd'};
+c_model        = 1:3;
 
 % Prepare paths
 data_path = cd;
@@ -45,10 +33,18 @@ msf_mkdir(o);
 opt = mdm_opt();
 opt.verbose       = 1;
 opt.do_overwrite  = 1;
+opt.do_mask = 1; 
+opt.mask.do_overwrite = 0;
+opt.mask.threshold = .1;
+opt.mask.b0_ind = 1;    
+opt.do_data2fit = 1; 
+opt.do_fit2param = 1;
+opt.do_m2pdf = 1;
 
 % Connect to data
-s.nii_fn = fullfile(i, 'data_sub.nii.gz');
-s.xps = mdm_xps_load(fullfile(i, 'data_sub_xps.mat'));
+s.nii_fn = fullfile(i, 'data.nii.gz');
+s.mask_fn = fullfile(i, 'data_mask.nii.gz');
+s.xps = mdm_xps_load(fullfile(i, 'data_xps.mat'));
 
 % Run analysis
 for n_model = 1:numel(c_model)
@@ -64,12 +60,6 @@ for n_model = 1:numel(c_model)
             nii_fn = dti_euler_pipe(s, paths, opt);
         case 'dtd_gamma'
             nii_fn = dtd_gamma_pipe(s, paths, opt);
-        case 'dtd_pake'
-            nii_fn = dtd_pake_pipe(s, paths, opt);
-        case 'dtd_saupe'
-            nii_fn = dtd_saupe_pipe(s, paths, opt);
-        case 'dtd_pa'
-            nii_fn = dtd_pa_pipe(s, paths, opt);
         case 'dtd'
             nii_fn = dtd_pipe(s, paths, opt);
     end
