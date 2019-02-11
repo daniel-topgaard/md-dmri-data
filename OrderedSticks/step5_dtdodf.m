@@ -1,6 +1,6 @@
 
 model         = 'dtd';
-odfbin = 1; %sticks
+odfbin = 4; %planes
 
 % Prepare options
 opt = mdm_opt();
