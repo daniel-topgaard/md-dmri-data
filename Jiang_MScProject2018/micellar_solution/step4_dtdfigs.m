@@ -6,7 +6,7 @@
 clear all
 
 % Parameter limits
-plim.mdiso = 2.5e-9*[0 1];
+plim.mdiso = 2.1e-9*[0 1];
 plim.msqddelta = 1*[0 1];
 plim.vdiso = 2.5e-19*[0 1];
 plim.vsqddelta = .15*[0 1];
