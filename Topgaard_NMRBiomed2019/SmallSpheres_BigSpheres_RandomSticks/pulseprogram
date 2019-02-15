@@ -1,0 +1,395 @@
+# 1 "/opt/topspin2/exp/stan/nmr/lists/pp/user/DT_axderare2d"
+; DT_axderare2d
+; Bruker AVII-500
+; Topspin 2.0
+; 20160323
+;
+; 2D single-shot imaging with axisymmetric diffusion encoding.
+; See fig 1 in Topgaard, Phys. Chem. Chem. Phys. 18, 8545 (2016),
+; http://dx.doi.org/10.1039/c5cp07251d.
+; RARE image read-out.
+; Hennig et al, Magn Reson Med. 3, 823 (1986),
+; http://dx.doi.org/10.1002/mrm.1910030602.
+;
+; Suitable for 2D mapping of:
+; 1) Conventional diffusion tensors;
+;    fractional anisotropy;
+;    Westin’s shape indices.
+;
+; 2) Isotropic and anisotropic variance of the diffusion tensor distribution;
+;    orientational order parameters;
+;    microscopic diffusion anisotropy.
+;    See Lasic et al, Front. Phys. 2, 11 (2014), 
+;    http://dx.doi.org/10.3389/fphy.2014.00011.
+;
+; 3) Shape of the microscopic diffusion tensor (prolate, sphere, oblate).
+;    See, Eriksson et al., J. Chem. Phys. 142, 104201 (2015),
+;    http://dx.doi.org/10.1063/1.4913502.
+;
+; 4) Saupe order tensors.
+;    See Topgaard, Phys. Chem. Chem. Phys. 18, 8545 (2016),
+;    http://dx.doi.org/10.1039/c5cp07251d.
+;
+; 5) Size-shape diffusion tensor distributions.
+;    See de Almeida Martins and Topgaard, Phys. Rev. Lett. 116, 087601 (2016).
+;    http://dx.doi.org/10.1103/PhysRevLett.116.087601.
+;   
+; 6) Size-shape-orientation diffusion tensor distributions.
+;    Work in progress
+;
+;
+;
+; Parameters:
+; Suggested values for Bruker MIC-5 probe with 10 mm 1H RF insert.
+;ns : number of scans [1]
+;dw : dwell time [10 us]
+;cnst1 : diff gradient x,y,z [100]
+;cnst11 : read gradient x [4.078 for 300 um]
+;cnst12 : read gradient y [0]
+;cnst13 : read gradient z [0]
+;cnst21 : phase gradient x [0]
+;cnst22 : phase gradient y [3.2623 for 600 um]
+;cnst23 : phase gradient z [0]
+;cnst31 : slice gradient x [0]
+;cnst32 : slice gradient y [0]
+;cnst33 : slice gradient z [13.0492 for 600 um]
+;cnst34 : slice spoil gradient x [10]
+;cnst35 : slice spoil gradient y [10]
+;cnst36 : slice spoil gradient z [10]
+;cnst37 : multiplier for slice rephase, adjust empirically [1.017]
+;d1: recycle delay [5 s]
+;d3 : diff gradient duration [10 ms]
+;d4 : diff gradient delay [5 ms]
+;d6 : diff gradient delay [5 ms]
+;d32 : gradient ramp time [200 us]
+;d40 : read plateau [640 us]
+;l1: number of phase encode increments [16]
+;p11 : soft excitation pulse at pl11 [500 us]
+;pl11 : power level soft pulses [18 dB]
+;spnam11 : soft pulse shape [Sinc2.1000]
+;p12 : soft refocusing pulse at pl12 [500 us]
+;pl12 : power level soft pulses [12 dB]
+;spnam12 : soft pulse shape [Sinc2.1000]
+;o1: resonance offset [calibrate with zg]
+;aq: acquisition time for entire echo train [70 ms >aqeff]
+;td: number of time domain points [from aq]
+;td1 : number of steps in acquisition protocol [250]
+;
+; All delays during image read-out should be multiples of 2dw
+; Make gradient waveforms with bruker_axde_waveform.m
+; Make acquisition protocol with bruker_axde_protocol.m
+; Process with axde_driver_batch.m
+
+;----------------------------------------
+;d35: excitation compensation delay
+;d11: disk transfer delay
+;d41: read dephase plateau
+;cnst14 : read dephase gradient x
+;cnst15 : read dephase gradient y
+;cnst16 : read dephase gradient z
+
+;$CLASS=DT
+;$DIM=2
+;$TYPE=imag
+;$SUBTYPE=spin echo
+;$COMMENT=
+;$OWNER=daniel
+
+# 1 "/opt/topspin2/exp/stan/nmr/lists/pp/user/Avancesolids.incl" 1
+;Avancesolids.incl
+;   for 1
+;
+;version 1 28.2.2001, written by HF
+;	   4.4.2006, complemented by Ste
+
+;switch between 1H or 19F output (H amplifier)
+;version 1 28.2.2001, written by HF 	   4.4.2006, 
+;complemented by Ste 
+;$COMMENT=definitions for setrtp and setnmr
+;$CLASS=Solids INCL
+
+;switch between 1H or 19F output (H amplifier) gating pulse for RX22, ADC and HPPR
+;$OWNER=Bruker
+
+
+
+;gating pulse for RX22, ADC and HPPR
+
+
+
+
+;generate dwell clock
+
+
+;blank/unblank receiver path
+
+
+
+
+
+
+
+
+
+;turn dwell clock on/off
+
+
+;
+
+
+
+;define data sampling for WAHUHA type experiments
+
+
+
+
+
+;explicit transmitter blanking
+
+
+
+
+
+
+
+;NCO switching
+
+
+
+
+
+
+
+
+
+# 97 "/opt/topspin2/exp/stan/nmr/lists/pp/user/DT_axderare2d" 2
+
+# 1 "/opt/topspin2/exp/stan/nmr/lists/pp/Grad.incl" 1
+;Grad2.incl  -  include file for Gradient Spectroscopy
+;   for 1
+;
+;avance-version (07/01/17)
+;
+;$CLASS=HighRes Incl
+;$COMMENT=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+define list<gradient> EA=<EA>
+
+
+
+;$Id: Grad2.incl,v 1.12 2007/01/22 14:22:35 ber Exp $
+# 98 "/opt/topspin2/exp/stan/nmr/lists/pp/user/DT_axderare2d" 2
+
+# 1 "/opt/topspin2/exp/stan/nmr/lists/pp/De.incl" 1
+;De.incl
+;
+;avance-version (06/03/10)
+;
+;$CLASS=HighRes Incl
+;$COMMENT=
+
+
+define delay rde1
+define delay rderx
+define delay rdeadc
+define delay rdepa
+
+
+"rde1=de-de1"
+"rderx=de-derx"
+"rdeadc=de-deadc"
+"rdepa=de-depa"
+
+
+
+
+
+
+
+
+
+
+
+
+
+;$Id: De.incl,v 1.1 2006/09/12 09:45:33 chjo Exp $
+# 99 "/opt/topspin2/exp/stan/nmr/lists/pp/user/DT_axderare2d" 2
+
+
+define delay aqrest
+define delay aqeff
+define delay tau
+define delay tauecho
+define delay dwcomp
+
+"d11=30m"
+"tauecho = (dw*8+d32*4+d40)"
+"d41 = tauecho/2-d32*3-dw*4"
+"cnst14=cnst11*0.5*(d40+d32)/(d41+d32*2)"
+"cnst15=cnst12*0.5*(d40+d32)/(d41+d32*2)"
+"cnst16=cnst13*0.5*(d40+d32)/(d41+d32*2)"
+"cnst2=cnst1" ;diff gradient y
+"cnst3=cnst1" ;diff gradient z
+"aqeff=tauecho/2 + d32 + (tauecho+p12)*l1"
+"aqrest = aq-aqeff"
+"dwcomp=dw-1.25u" ;1.25u: mystery delay
+"d34 = p11*0.5-d32*.5"
+"d35 = d34 + d32*3+p11*0.5"
+"d22 = 1u" ;switch delay
+
+define delay FOVread ; field-of-view read
+"FOVread = 100*pi/(26.75e7*dw*1e-6*sqrt(pow(cnst11,2)+pow(cnst12,2)+pow(cnst13,2))*3)"
+define delay FOVphase ; field-of-view phase
+"FOVphase = 100*pi*l1/(26.75e7*d32*sqrt(pow(cnst21,2)+pow(cnst22,2)+pow(cnst23,2))*3)"
+define delay RESread ; resolution read
+"RESread = FOVread*2*dw/d40"
+define delay RESphase ; resolution phase
+"RESphase = FOVphase/l1"
+
+define delay ShowInASED
+"ShowInASED=d35+cnst1+d3+d4+cnst37+aqrest+cnst14+cnst15+cnst16+cnst21+cnst22+cnst23+cnst31+cnst32+cnst33+cnst34+cnst35+cnst36+FOVread+FOVphase+RESread+RESphase"
+
+define list <gradient> ru=<rampUp.50> ; Make gradient ramps with Topspin shapetool
+define list <gradient> rd=<rampDown.50>
+define list <gradient> ga=<ga> ; Make with bruker_axde_waveform.m and put in expno folder
+define list <gradient> gb=<gb>
+define list <gradient> gc=<gc>
+define list <gradient> gxa=<gxa> ; Make with bruker_axde_protocol.m and put in expno folder
+define list <gradient> gxb=<gxb>
+define list <gradient> gxc=<gxc>
+define list <gradient> gya=<gya>
+define list <gradient> gyb=<gyb>
+define list <gradient> gyc=<gyc>
+define list <gradient> gza=<gza>
+define list <gradient> gzb=<gzb>
+define list <gradient> gzc=<gzc>
+
+lgrad r2d = l1
+
+
+# 1 "mc_line 152 file /opt/topspin2/exp/stan/nmr/lists/pp/user/DT_axderare2d dc-measurement inserted automatically"
+    dccorr
+# 152 "/opt/topspin2/exp/stan/nmr/lists/pp/user/DT_axderare2d"
+1 ze
+2 d1
+
+  zgrad r2d
+  d22 setnmr0|34|32|33 ctrlgrad 0
+  (1u adc ph31 syrec)
+  (1u ph30:r):f1
+  d22 setrtp1^0^1^2
+  d22 setnmr0|0^16
+  d22 pl11:f1 ;fqlist:f1
+
+  ;slice-selective excitation
+  d32 grad{ ru(cnst31,50) | ru(cnst32,50) | ru(cnst33,50)  }	
+  (p11:spf11 pl11 ph1):f1
+  d32 grad{ rd(cnst31,50) | rd(cnst32,50) | rd(cnst33,50)  }
+  ;slice rephase
+  d32 grad{ ru(-cnst37*cnst31,50) | ru(-cnst37*cnst32,50) | ru(-cnst37*cnst33,50)  }	
+  d34 grad{ (-cnst37*cnst31) | (-cnst37*cnst32) | (-cnst37*cnst33)  }	
+  d32 grad{ rd(-cnst37*cnst31,50) | rd(-cnst37*cnst32,50) | rd(-cnst37*cnst33,50)  }	
+
+  ;diffusion and T2 encoding--------------------------------------
+if (1) {
+  d22 groff
+  d6
+
+  d3 grad{ ga(cnst1,1000)*gxa + gb(cnst1,1000)*gxb + gc(cnst1,1000)*gxc | ga(cnst2,1000)*gya + gb(cnst2,1000)*gyb + gc(cnst2,1000)*gyc | ga(cnst3,1000)*gza + gb(cnst3,1000)*gzb + gc(cnst3,1000)*gzc }
+  d4
+
+  ;slice-selective refocusing
+  d32 pl12:f1 grad{ ru(cnst34,50) | ru(cnst35,50) | ru(cnst36,50)  }	
+  d32 grad{ rd(cnst34,50)+ru(cnst31,50) | rd(cnst35,50)+ru(cnst32,50) | rd(cnst36,50)+ru(cnst33,50)  }	
+  (p12:spf12 pl12 ph2):f1
+  d32 grad{ rd(cnst31,50)+ru(cnst34,50) | rd(cnst32,50)+ru(cnst35,50) | rd(cnst33,50)+ru(cnst36,50)  }	
+  d32 grad{ rd(cnst34,50) | rd(cnst35,50)  | rd(cnst36,50)  }
+
+  d3 grad{ ga(cnst1,1000)*gxa + gb(cnst1,1000)*gxb + gc(cnst1,1000)*gxc | ga(cnst2,1000)*gya + gb(cnst2,1000)*gyb + gc(cnst2,1000)*gyc | ga(cnst3,1000)*gza + gb(cnst3,1000)*gzb + gc(cnst3,1000)*gzc }
+  d4
+
+  d22 groff
+  d6
+}
+  ;------------------------------------------------------------------
+
+  d35 ;fq=0:f1 ;spin echo compensation for p11 and d34 etc.
+
+;RARE read-out with continuous detection-----------------------------
+  dw setrtp1|7
+  dw setnmr0^0|16
+  dw*2 setrtp1|0|1|2
+  
+  ;read dephase
+  d32 grad{ ru(cnst14,50) | ru(cnst15,50) | ru(cnst16,50) }	
+  d41 grad{ (cnst14) | (cnst15) | (cnst16) }	
+  ;slice dephase
+  d32 grad{ (cnst14)+ru(cnst34,50) | (cnst15)+ru(cnst35,50) | (cnst16)+ru(cnst36,50)  }	
+  d32 grad{ rd(cnst14,50)+rd(cnst34,50)+ru(cnst31,50) | rd(cnst15,50)+rd(cnst35,50)+ru(cnst32,50) | rd(cnst16,50)+rd(cnst36,50)+ru(cnst33,50)  }	
+
+3 ;slice selective RF w/ receiver blanking
+  dw*2 setrtp1^0^1^2
+  dw setnmr0|0^16
+  dwcomp
+  (p12:spf12 pl12 ph2):f1
+  dwcomp 
+  dw setnmr0^0|16
+  dw*2 setrtp1|0|1|2 
+
+  ;slice rephase + phase encode
+  d32 grad{ rd(cnst31,50)+ru(cnst34,50)+ru(cnst21,50)*r2d | rd(cnst32,50)+ru(cnst35,50)+ru(cnst22,50)*r2d | rd(cnst33,50)+ru(cnst36,50)+ru(cnst23,50)*r2d  }	
+  d32 grad{ rd(cnst34,50)+rd(cnst21,50)*r2d+ru(cnst11,50) | rd(cnst35,50)+rd(cnst22,50)*r2d+ru(cnst12,50)  | rd(cnst36,50)+rd(cnst23,50)*r2d+ru(cnst13,50)  }	
+
+  ;read
+  d40 grad{ (cnst11) | (cnst12) | (cnst13) }
+
+  ;slice dephase + phase rewind
+  d32 grad{ rd(cnst11,50)+ru(cnst34,50)-ru(cnst21,50)*r2d | ru(cnst35,50)-ru(cnst22,50)*r2d+rd(cnst12,50) | rd(cnst13,50)+ru(cnst36,50)-ru(cnst23,50)*r2d  }	
+  d32 grad{ rd(cnst34,50)-rd(cnst21,50)*r2d+ru(cnst31,50) | rd(cnst35,50)-rd(cnst22,50)*r2d+ru(cnst32,50)  | rd(cnst36,50)-rd(cnst23,50)*r2d+ru(cnst33,50)  }	
+
+  igrad r2d
+  lo to 3 times l1
+
+  d32 grad{ rd(cnst31,50) | rd(cnst32,50) | rd(cnst33,50)  }	
+  aqrest groff
+  d22 setrtp1^7 
+  d22 setrtp1^0^1^2
+  d22 setnmr0^34^32^33 ctrlgrad 7
+;-------------------------------------------------------------------
+  
+  rcyc=2 ;Loop over ns.
+  d11 wr #0 if #0 igrad gxa ;Save to file. Increment gradient lists.
+  igrad gxb
+  igrad gxc
+  igrad gya
+  igrad gyb
+  igrad gyc
+  igrad gza
+  igrad gzb
+  igrad gzc
+  lo to 1 times td1
+
+exit
+
+ph1=0 2
+ph2=1 1 3 3
+ph30=0
+ph31=0 2
