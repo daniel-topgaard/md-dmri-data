@@ -3,7 +3,7 @@
 % https://doi.org/10.1002/nbm.4066
 clear all
 
-dtdbin = 1; %1:sticks, 4:planes
+dtdbin = 4; %1:sticks, 4:planes
 
 % Font sizes etc
 figscale = 2;
