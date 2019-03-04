@@ -23,17 +23,17 @@ maps_path = fullfile(data_path, 'NII_RES', 'maps');
 bs_path = fullfile(data_path,'NII_RES',model,'bootstrap');
 
 % Collect data from bootstraps
-NBS = 96;
-odf_cell = cell(NBS,1);
-for nBS = 1:NBS
-    mfs_fn   = fullfile(bs_path, num2str(nBS), 'mfs.mat');
-    odf_cell{nBS} = dtd_4d_fit2odf(mfs_fn, opt);
+bsno = msf_getdirno(bs_path);
+nn = 0;
+for nbs = bsno
+    mfs_fn   = fullfile(bs_path, num2str(nbs), 'mfs.mat');
+    odf_cell{nbs} = dtd_4d_fit2odf(mfs_fn, opt);
 end
 
 odf = odf_cell{1};
 
-for nBS = 2:NBS
-    odf_temp =  odf_cell{nBS};
+for nbs = bsno(2:end)
+    odf_temp =  odf_cell{nbs};
     odf.w = cat(5,odf.w,odf_temp.w);
     for nbin = 1:numel(odf.w_bin)
         odf.w_bin{nbin} = cat(5,odf.w_bin{nbin},odf_temp.w_bin{nbin});

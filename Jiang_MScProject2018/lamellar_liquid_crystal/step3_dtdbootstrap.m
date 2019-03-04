@@ -37,7 +37,7 @@ s.xps = mdm_xps_load(fullfile(i, 'data_xps.mat'));
 tic;
 
 % OUTPUT: define paths for data, fit parameters, and maps
-parfor nBS = 1:96
+parfor nBS = 1:12
     o     = fullfile(data_path,'NII_RES',model,'bootstrap',num2str(nBS));
     msf_mkdir(o);
 
